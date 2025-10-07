@@ -15,6 +15,7 @@
       cat_x_offset=${toString cfg.catXOffset}
       cat_y_offset=${toString cfg.catYOffset}
       cat_height=${toString cfg.catHeight}
+      cat_align=${toString cfg.catAlign}
 
       # Overlay
       overlay_position=${toString cfg.overlayPosition}
@@ -119,6 +120,12 @@ in {
       default = 0;
       example = 10;
       description = "Vertical offset from center position (pixels)";
+    };
+    catAlign = lib.mkOption {
+      type = lib.types.str;
+      default = "center";
+      example = "left";
+      description = "Horizontal alignment in the bar";
     };
 
     # Size
