@@ -39,6 +39,12 @@
 
       monitor=${toString cfg.monitor}
 
+      enable_antialiasing=${
+        if cfg.enableAntialiasing
+        then "1"
+        else "0"
+      }
+
       # Input devices
       ${lib.concatMapStringsSep "\n" (device: "keyboard_device=${device}") cfg.inputDevices}
     '';
@@ -63,6 +69,14 @@ in {
       type = lib.types.package;
       default = wayland-bongocat;
       description = "The wayland-bongocat package to use.";
+    };
+
+    # Antialiasing
+    enableAntialiasing = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      example = true;
+      description = "Enable Antialiasing";
     };
 
     # Debug mode
