@@ -168,6 +168,13 @@ in {
     };
   };
 
+  options._bongocat = lib.mkOption {
+    type = lib.types.attrs;
+    default = {};
+    internal = true;
+    description = "Internal configuration for wayland-bongocat";
+  };
+
   # Configuration
   config._bongocat = {
     inherit cfg configFile;
